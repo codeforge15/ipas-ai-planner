@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>{{ page.title | default: site.title }}</title>
+<style>
+:root{
+  --bg:#f6f7f9; --card:#fff; --fg:#1c1e21; --muted:#6b7280; --line:#e3e6ea;
+  --brand:#4c5fd7; --brand-soft:#eceffd; --warn:#8a6100; --warn-soft:#fdf3e0;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#14161a; --card:#1d2026; --fg:#e8eaed; --muted:#9aa1ab; --line:#2c313a;
+    --brand:#8b9bff; --brand-soft:#242a45; --warn:#e6b968; --warn-soft:#332a18;
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--fg);
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,-apple-system,sans-serif;
+  line-height:1.75; -webkit-text-size-adjust:100%;
+}
+.nav{
+  background:var(--card); border-bottom:1px solid var(--line);
+  position:sticky; top:0; z-index:10;
+}
+.nav .in{max-width:860px; margin:0 auto; padding:12px 18px; display:flex; gap:16px; flex-wrap:wrap; align-items:center}
+.nav a{color:var(--muted); text-decoration:none; font-size:.9rem; font-weight:600}
+.nav a:hover,.nav a.on{color:var(--brand)}
+.nav .home{color:var(--fg); margin-right:auto}
+main{max-width:860px; margin:0 auto; padding:28px 18px 80px}
+h1{font-size:1.6rem; line-height:1.35; margin:0 0 6px}
+h1+p{color:var(--muted)}
+h2{font-size:1.25rem; margin:2.2em 0 .6em; padding-bottom:.3em; border-bottom:2px solid var(--line)}
+h3{font-size:1.05rem; margin:1.8em 0 .5em}
+h4{font-size:.98rem; margin:1.4em 0 .4em; color:var(--muted)}
+p,li{font-size:.96rem}
+code{
+  background:var(--brand-soft); color:var(--brand); padding:.12em .4em;
+  border-radius:5px; font-size:.88em;
+}
+pre{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px; overflow-x:auto}
+pre code{background:none; color:var(--fg); padding:0}
+blockquote{
+  margin:1.2em 0; padding:10px 16px; border-left:3px solid var(--warn);
+  background:var(--warn-soft); border-radius:0 8px 8px 0;
+}
+blockquote p{margin:.3em 0}
+.tw{overflow-x:auto; -webkit-overflow-scrolling:touch; margin:1.2em 0}
+table{border-collapse:collapse; width:100%; font-size:.9rem}
+th,td{border:1px solid var(--line); padding:8px 10px; text-align:left; vertical-align:top}
+th{background:var(--brand-soft); color:var(--fg); white-space:nowrap}
+hr{border:0; border-top:1px solid var(--line); margin:2.4em 0}
+a{color:var(--brand)}
+ul,ol{padding-left:1.4em}
+li{margin:.25em 0}
+input[type=checkbox]{margin-right:.4em}
+footer{
+  max-width:860px; margin:0 auto; padding:24px 18px 60px;
+  color:var(--muted); font-size:.82rem; border-top:1px solid var(--line);
+}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="in">
+  <a class="home" href="{{ '/' | relative_url }}">iPAS AI 應用規劃師 備考筆記</a>
+  <a href="{{ '/subject-1/' | relative_url }}">科目一</a>
+  <a href="{{ '/subject-2/' | relative_url }}">科目二</a>
+  <a href="{{ '/題庫.html' | relative_url }}">題庫</a>
+</div></nav>
+<main>
+{{ content }}
+</main>
+<footer>
+  本站為個人備考整理，非官方教材。考試範圍與規定請以 iPAS 官方簡章為準。
+</footer>
+<script>
+// 讓寬表格在手機上可獨立橫向捲動
+document.querySelectorAll('main table').forEach(t=>{
+  if(t.parentElement.classList.contains('tw')) return;
+  const w=document.createElement('div'); w.className='tw';
+  t.parentNode.insertBefore(w,t); w.appendChild(t);
+});
+</script>
+</body>
+</html>

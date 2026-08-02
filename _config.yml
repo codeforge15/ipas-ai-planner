@@ -1,0 +1,20 @@
+title: iPAS AI 應用規劃師（初級）備考筆記
+description: 個人備考用的整理筆記與練習題庫
+lang: zh-Hant
+
+# 只處理站台檔案，其餘一律不進 build
+include:
+  - 題庫.html
+exclude:
+  - tools
+  - 考古題
+  - 學習計畫.md
+  - AI專案規劃基礎.md
+  - "*.pdf"
+  - README.md
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default

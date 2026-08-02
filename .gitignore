@@ -1,0 +1,21 @@
+# 採白名單策略：預設全部排除，只放行要發佈的檔案。
+# 這樣新增任何檔案（尤其 PDF、個人資料）都不會被誤推上公開 repo。
+
+/*
+!/.gitignore
+!/README.md
+!/_config.yml
+!/index.md
+!/_layouts/
+!/題庫.html
+!/筆記_科目一_人工智慧基礎概論.md
+!/筆記_科目二_生成式AI應用與規劃.md
+
+# 明確再擋一次（防呆）
+*.pdf
+tools/
+考古題/
+學習計畫.md
+AI專案規劃基礎.md
+_site/
+.jekyll-cache/
