@@ -9,6 +9,7 @@
 :root{
   --bg:#f6f7f9; --card:#fff; --fg:#1c1e21; --muted:#6b7280; --line:#e3e6ea;
   --brand:#4c5fd7; --brand-soft:#eceffd; --warn:#8a6100; --warn-soft:#fdf3e0;
+  --w:860px;
 }
 @media (prefers-color-scheme:dark){
   :root{
@@ -26,11 +27,19 @@ body{
   background:var(--card); border-bottom:1px solid var(--line);
   position:sticky; top:0; z-index:10;
 }
-.nav .in{max-width:860px; margin:0 auto; padding:12px 18px; display:flex; gap:16px; flex-wrap:wrap; align-items:center}
+.nav .in{max-width:var(--w); margin:0 auto; padding:12px 18px; display:flex; gap:16px; flex-wrap:wrap; align-items:center}
 .nav a{color:var(--muted); text-decoration:none; font-size:.9rem; font-weight:600}
 .nav a:hover,.nav a.on{color:var(--brand)}
 .nav .home{color:var(--fg); margin-right:auto}
-main{max-width:860px; margin:0 auto; padding:28px 18px 80px}
+main{max-width:var(--w); margin:0 auto; padding:28px 18px 80px}
+/* 桌機放寬版面：手機維持窄版好讀，大螢幕讓表格有空間展開 */
+@media (min-width:1100px){
+  :root{--w:1080px}
+  main{padding:32px 28px 90px}
+  p,li{font-size:1rem}
+  table{font-size:.94rem}
+}
+@media (min-width:1500px){ :root{--w:1280px} }
 h1{font-size:1.6rem; line-height:1.35; margin:0 0 6px}
 h1+p{color:var(--muted)}
 h2{font-size:1.25rem; margin:2.2em 0 .6em; padding-bottom:.3em; border-bottom:2px solid var(--line)}
